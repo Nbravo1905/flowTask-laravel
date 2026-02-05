@@ -7,6 +7,154 @@
 @source '../**/*.blade.php';
 @source '../**/*.js';
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
-    --font-sans: Inter, sans-serif;
+  --font-sans: Inter, sans-serif;
+}
+@theme {
+    --color-zinc-50: var(--color-neutral-50);
+    --color-zinc-100: var(--color-neutral-100);
+    --color-zinc-200: var(--color-neutral-200);
+    --color-zinc-300: var(--color-neutral-300);
+    --color-zinc-400: var(--color-neutral-400);
+    --color-zinc-500: var(--color-neutral-500);
+    --color-zinc-600: var(--color-neutral-600);
+    --color-zinc-700: var(--color-neutral-700);
+    --color-zinc-800: var(--color-neutral-800);
+    --color-zinc-900: var(--color-neutral-900);
+    --color-zinc-950: var(--color-neutral-950);
+}
+
+/* TEMA POR DEFECTO (neutral) */
+@theme {
+    --color-accent: var(--color-neutral-800);
+    --color-accent-content: var(--color-neutral-800);
+    --color-accent-foreground: var(--color-white);
+}
+
+@layer theme {
+    .dark {
+        --color-accent: var(--color-white);
+        --color-accent-content: var(--color-white);
+        --color-accent-foreground: var(--color-neutral-800);
+    }
+}
+
+/* TEMA AMBER */
+.theme-amber {
+    --color-accent: var(--color-amber-400);
+    --color-accent-content: var(--color-amber-600);
+    --color-accent-foreground: var(--color-amber-950);
+}
+
+.dark.theme-amber {
+    --color-accent: var(--color-amber-400);
+    --color-accent-content: var(--color-amber-400);
+    --color-accent-foreground: var(--color-amber-950);
+}
+
+
+
+
+
+
+
+
+
+
+@layer utilities {
+    /* Texto con color de acento */
+    .text-accent {
+        color: var(--color-accent);
+    }
+    
+    .text-accent-content {
+        color: var(--color-accent-content);
+    }
+    
+    .text-accent-foreground {
+        color: var(--color-accent-foreground);
+    }
+    
+    /* Hover para texto */
+    .hover\:text-accent:hover {
+        color: var(--color-accent);
+    }
+    
+    .hover\:text-accent-content:hover {
+        color: var(--color-accent-content);
+    }
+    
+    /* Fondo con color de acento */
+    .bg-accent {
+        background-color: var(--color-accent);
+    }
+    
+    .bg-accent-content {
+        background-color: var(--color-accent-content);
+    }
+    
+    .bg-accent-foreground {
+        background-color: var(--color-accent-foreground);
+    }
+    
+    /* Hover para fondo */
+    .hover\:bg-accent:hover {
+        background-color: var(--color-accent);
+    }
+    
+    .hover\:bg-accent-content:hover {
+        background-color: var(--color-accent-content);
+    }
+    
+    /* Bordes con color de acento */
+    .border-accent {
+        border-color: var(--color-accent);
+    }
+    
+    .border-accent-content {
+        border-color: var(--color-accent-content);
+    }
+    
+    /* Border-left específico */
+    .border-l-accent {
+        border-left-color: var(--color-accent);
+    }
+    
+    /* Ring (outline) con color de acento */
+    .ring-accent {
+        --tw-ring-color: var(--color-accent);
+    }
+    
+    .focus\:ring-accent:focus {
+        --tw-ring-color: var(--color-accent);
+    }
+    
+    /* Divide (para listas) */
+    .divide-accent > :not([hidden]) ~ :not([hidden]) {
+        border-color: var(--color-accent);
+    }
+    
+    /* Placeholder */
+    .placeholder-accent::placeholder {
+        color: var(--color-accent);
+        opacity: 0.5;
+    }
+    
+    /* Fill para SVGs */
+    .fill-accent {
+        fill: var(--color-accent);
+    }
+    
+    /* Stroke para SVGs */
+    .stroke-accent {
+        stroke: var(--color-accent);
+    }
+    
+    /* Shadow con color de acento */
+    .shadow-accent {
+        --tw-shadow-color: var(--color-accent);
+        --tw-shadow: var(--tw-shadow-colored);
+    }
 }
