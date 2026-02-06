@@ -83,6 +83,12 @@ new class extends Component
             Task::where('id', $task->id)->update(['position' => $index]);
         });
 
-        $this->getTasks();
+        $this->dispatch('task-updated');
+    }
+
+    #[Computed]
+    public function showTaskCompleted()
+    {
+        return $this->taskCompleted->count() > 0;
     }
 };

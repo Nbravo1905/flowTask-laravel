@@ -65,11 +65,12 @@ new class extends Component
         <flux:spacer />
         <flux:navbar class="">
             <flux:modal.trigger name="new-task">
-                <flux:button variant="primary" size="sm" class="mr-2 cursor-pointer ">Nueva Tarea</flux:button>
+                <flux:button variant="primary" size="sm" class="mr-2 cursor-pointer shadow-lg!">Nueva Tarea
+                </flux:button>
             </flux:modal.trigger>
             <button wire:click="toggleTheme"
-                class="mr-2 flex items-center justify-center p-2 rounded-lg transition cursor-pointer hover:bg-zinc-100 dark:hover:bg-zinc-800 text-accent">
-                
+                class="mr-2 flex items-center justify-center p-2 rounded-lg transition cursor-pointer hover:bg-zinc-100 dark:hover:bg-zinc-800 text-accent shadow-lg!">
+
                 <span x-show="darkMode">
                     <flux:icon.moon class="w-6 h-6" />
                 </span>
@@ -78,7 +79,8 @@ new class extends Component
                 </span>
             </button>
             <flux:dropdown class="mr-2" offset="-10">
-                <flux:button icon="swatch" variant="ghost" class="mr-2 flex items-center justify-center p-2 rounded-lg transition cursor-pointer hover:bg-zinc-100 dark:hover:bg-zinc-800 text-accent">
+                <flux:button icon="swatch" variant="ghost"
+                    class="mr-2 flex items-center justify-center p-2 rounded-lg transition cursor-pointer hover:bg-zinc-100 dark:hover:bg-zinc-800 text-accent">
                 </flux:button>
                 <flux:menu>
                     <flux:menu.item wire:click="setTheme('default')" class="cursor-pointer">
@@ -105,17 +107,26 @@ new class extends Component
         </flux:navbar>
         <flux:separator vertical class="my-1 mr-2" />
         <flux:dropdown position="top" align="start">
-            <flux:profile circle initials="AD" class="cursor-pointer" />
+            <flux:profile circle initials="{{ strtoupper(
+                    substr(auth()->user()->name, 0, 1) .
+                    substr(strstr(auth()->user()->name, ' '), 1, 1)
+                ) }}" class="cursor-pointer" />
             <flux:menu>
                 {{-- <flux:menu.radio.group>
                     <flux:menu.radio checked>Olivia Martin</flux:menu.radio>
                     <flux:menu.radio>Truly Delta</flux:menu.radio>
                 </flux:menu.radio.group> --}}
-                <flux:menu.item icon="user" class="hover:bg-accent hover:text-accent-foreground transition cursor-pointer">Profile</flux:menu.item>
-                <flux:menu.item icon="cog-6-tooth" class="hover:bg-accent hover:text-accent-foreground transition cursor-pointer">Settings</flux:menu.item>
+                <flux:menu.item icon="user"
+                    class="hover:bg-accent hover:text-accent-foreground transition cursor-pointer">Profile
+                </flux:menu.item>
+                <flux:menu.item icon="cog-6-tooth"
+                    class="hover:bg-accent hover:text-accent-foreground transition cursor-pointer">Settings
+                </flux:menu.item>
                 <flux:menu.separator class="border-2 border-bg-accent" />
                 <flux:modal.trigger name="confirm-logout">
-                    <flux:menu.item icon="arrow-right-start-on-rectangle" class="hover:bg-accent hover:text-accent-foreground transition cursor-pointer">Logout</flux:menu.item>
+                    <flux:menu.item icon="arrow-right-start-on-rectangle"
+                        class="hover:bg-accent hover:text-accent-foreground transition cursor-pointer">Logout
+                    </flux:menu.item>
                 </flux:modal.trigger>
             </flux:menu>
         </flux:dropdown>

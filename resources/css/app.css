@@ -61,7 +61,21 @@
 
 
 
-
+@layer base {
+    /* Sobrescribir estilos de Flux para inputs - Solo borde */
+    input:focus,
+    textarea:focus,
+    select:focus {
+        border-color: var(--color-accent) !important;
+        outline: none !important;
+        box-shadow: none !important;
+        --tw-ring-shadow: none !important;
+    }
+}
+.\!shadow-lg {
+  --tw-shadow: 0 10px 15px -3px var(--tw-shadow-color, rgb(0 0 0 / 0.1)), 0 4px 6px -4px var(--tw-shadow-color, rgb(0 0 0 / 0.1)) !important;
+  box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow) !important;
+}
 
 @layer utilities {
     /* Texto con color de acento */
