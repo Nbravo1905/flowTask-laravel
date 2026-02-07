@@ -83,7 +83,7 @@ new class extends Component
             Task::where('id', $task->id)->update(['position' => $index]);
         });
 
-        $this->dispatch('task-updated');
+        $this->getTasks();
     }
 
     #[Computed]
