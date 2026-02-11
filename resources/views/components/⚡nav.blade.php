@@ -61,7 +61,13 @@ new class extends Component
         currentTheme = $event.detail.theme;
     ">
     <flux:header container class="border-b border-zinc-200 dark:border-zinc-700 bg-white dark:bg-zinc-900">
-        <a href="/" class="text-accent font-bold text-3xl">FlowTask</a>
+        <!-- <a href="/" class="text-accent font-bold text-3xl">FlowTask</a> -->
+        <div class="flex items-center gap-2">
+            <div class="w-8 h-8 bg-accent rounded-lg flex items-center justify-center text-accent-foreground font-bold text-xl shadow-lg shadow-accent/30">
+                F
+            </div>
+            <a class="text-xl font-bold tracking-tight text-gray-900 dark:text-white" href="/">FlowTask</a>
+        </div>
         <flux:spacer />
         <flux:navbar class="">
             <flux:modal.trigger name="new-task">
@@ -117,7 +123,7 @@ new class extends Component
                     <flux:menu.radio>Truly Delta</flux:menu.radio>
                 </flux:menu.radio.group> --}}
                 <flux:menu.item icon="user"
-                    class="hover:bg-accent hover:text-accent-foreground transition cursor-pointer">Profile
+                    class="hover:bg-accent hover:text-accent-foreground transition cursor-pointer" href="{{ route('profile') }}">Profile
                 </flux:menu.item>
                 <flux:menu.item icon="cog-6-tooth"
                     class="hover:bg-accent hover:text-accent-foreground transition cursor-pointer">Settings
