@@ -10,3 +10,4 @@ Route::livewire('/dashboard', 'pages::home.dashboard')->name('dashboard')->middl
 
 Route::livewire('/login', 'pages::auth.login')->name('login')->middleware('guest');
 Route::livewire('/registro', 'pages::auth.register')->name('register')->middleware('guest');
+Route::livewire('/profile', 'pages::profile.edit')->name('profile')->middleware('auth');
