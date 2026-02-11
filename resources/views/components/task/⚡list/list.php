@@ -85,4 +85,10 @@ new class extends Component
 
         $this->getTasks();
     }
+
+    #[Computed]
+    public function showTaskCompleted()
+    {
+        return $this->taskCompleted->count() > 0;
+    }
 };
