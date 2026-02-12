@@ -25,6 +25,10 @@ new class extends Component
         $this->totalTask = Task::count();
         $this->taskCompleted = Task::where('status', 'completed')->count();
         $this->taskProgress = Task::where('status', 'progress')->count();
-        $this->taskPorcentaje = round(($this->taskCompleted / $this->totalTask) * 100, 0);
+        if ($this->totalTask > 0) {
+            $this->taskPorcentaje = round(($this->taskCompleted / $this->totalTask) * 100, 0);
+        } else {
+            $this->taskPorcentaje = 0;
+        }
     }
 };
