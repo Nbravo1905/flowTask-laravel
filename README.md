@@ -4,7 +4,7 @@
 
 FlowTask es una aplicación de gestión de tareas construida con **Laravel**, **Livewire** y **Flux**. Diseñada para mantenerte enfocado y productivo con una interfaz limpia e intuitiva.
 
-![FlowTask Preview](public/preview/491_1x_shots_so.png)
+![FlowTask Preview](public/preview/501_1x_shots_so.png)
 
 ---
 
@@ -35,13 +35,13 @@ FlowTask es una aplicación de gestión de tareas construida con **Laravel**, **
 
 <div align="center">
 
+| Pagina Inicial | Nueva Tarea |
+|:---:|:---:|
+| ![Pagina Inicial](public/preview/501_1x_shots_so.png) | ![Nueva Tarea](public/preview/982_1x_shots_so.png) |
+
 | Dashboard | Tareas | Edición |
 |:---:|:---:|:---:|
-| ![Dashboard](public/preview/72_1x_shots_so.png) | ![Tareas](public/preview/478_1x_shots_so.png) | ![Edición](public/preview/587_1x_shots_so.png) |
-
-| Login | Registro |
-|:---:|:---:|
-| ![Login](public/preview/874_1x_shots_so.png) | ![Registro](public/preview/491_1x_shots_so.png) |
+| ![Dashboard](public/preview/143_1x_shots_so.png) | ![Tareas](public/preview/297_1x_shots_so.png) | ![Completadas](public/preview/813_1x_shots_so.png) |
 
 </div>
 
@@ -66,8 +66,7 @@ php artisan key:generate
 php artisan migrate
 
 # Iniciar servidor
-php artisan serve
-npm run dev
+composer run dev
 ```
 
 ---
