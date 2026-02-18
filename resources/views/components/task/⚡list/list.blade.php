@@ -2,6 +2,15 @@
     <div class="w-full max-w-8/12 mx-auto">
         <flux:text class="mt-2 mb-4 text-xl font-bold text-zinc-900 dark:text-zinc-100">En Progreso</flux:text>
         <flux:separator class="mb-4 bg-accent" />
+        @if($tasks->isEmpty())
+        <div class="flex flex-col items-center justify-center py-16 px-4">
+            <div class="w-20 h-20 rounded-full bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center mb-4">
+                <flux:icon.clipboard-document-list class="w-10 h-10 text-zinc-400 dark:text-zinc-500" />
+            </div>
+            <p class="text-zinc-600 dark:text-zinc-400 text-base font-medium">Aún no tienes tareas creadas</p>
+            <p class="text-zinc-400 dark:text-zinc-500 text-sm mt-1">Crea tu primera tarea para comenzar</p>
+        </div>
+        @else
         <div wire:sort="updateTaskOrder">
             @foreach ($tasks as $task)
             <div wire:sort:item="{{ $task->id }}" wire:key="task-{{ $task->id }}">
@@ -81,6 +90,7 @@
             </div>
             @endforeach
         </div>
+        @endif
     </div>
     @if($this->showTaskCompleted())
     <div class="w-full max-w-8/12 mx-auto mt-25 pb-20">
