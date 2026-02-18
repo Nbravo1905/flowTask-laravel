@@ -22,10 +22,12 @@ new class extends Component
     public function getTasks()
     {
         $this->tasks = Task::where('status', 'progress')
+            ->where('user_id', auth()->user()->id)
             ->orderBy('position')
             ->get();
         
         $this->taskCompleted = Task::where('status', 'completed')
+            ->where('user_id', auth()->user()->id)
             ->orderBy('created_at', 'desc')
             ->get();
     }

@@ -22,9 +22,9 @@ new class extends Component
     #[On('task-deleted')]
     public function chartTasks()
     {
-        $this->totalTask = Task::count();
-        $this->taskCompleted = Task::where('status', 'completed')->count();
-        $this->taskProgress = Task::where('status', 'progress')->count();
+        $this->totalTask = Task::where('user_id', auth()->user()->id)->count(); 
+        $this->taskCompleted = Task::where('status', 'completed')->where('user_id', auth()->user()->id)->count();
+        $this->taskProgress = Task::where('status', 'progress')->where('user_id', auth()->user()->id)->count();
         if ($this->totalTask > 0) {
             $this->taskPorcentaje = round(($this->taskCompleted / $this->totalTask) * 100, 0);
         } else {
